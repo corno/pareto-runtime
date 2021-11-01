@@ -30,21 +30,53 @@ export function StringFromCharCode(
 ): string {
     return String.fromCharCode(charCode)
 }
+
+export type ErrorType =
+    | ["no entity", {}]
+    | ["is directory", {}]
+    | ["other", {
+        message: string
+    }]
+
 export function readFile(
     path: string,
     callback: (
-        err: NodeJS.ErrnoException | null,
-        data: string,
+        $:
+            | ["error", {
+                type: ErrorType
+            }]
+            | ["success", {
+                data: string
+            }],
     ) => void,
 ): void {
     fs.readFile(
         path,
         { encoding: "utf-8" },
         (err, data) => {
-            callback(
-                err,
-                data,
-            )
+            if (err === null) {
+                callback(["success", {
+                    data: data,
+                }])
+
+            } else {
+                const errCode = err.code
+                callback(["error", {
+                    type: ((): ErrorType => {
+                        switch (errCode) {
+                            case "ENOENT":
+                                return ["no entity", {}]
+                            case "EISDIR":
+                                return ["is directory", {}]
+
+                            default: {
+                                console.warn(`unknown error code: ${err.message}`)
+                                return ["other", { message: err.message }]
+                            }
+                        }
+                    })()
+                }])
+            }
         }
     )
 }
