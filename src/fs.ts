@@ -147,6 +147,52 @@ export function mkdir(
     )
 }
 
+export type WriteFileErrorType =
+    //| ["no entity", {}]
+    //| ["is directory", {}]
+    | ["other", {
+        message: string
+    }]
+
+export function writeFile(
+    path: string,
+    data: string,
+    callback: (
+        $:
+            | ["error", {
+                type: WriteFileErrorType
+            }]
+            | ["success", {
+            }],
+    ) => void,
+) {
+    fs.writeFile(
+        path,
+        data,
+        (err) => {
+            if (err !== null) {
+                const errCode = err.code
+                callback(["error", {
+                    type: ((): MkDirErrorType => {
+                        switch (errCode) {
+                            // case "ENOENT":
+                            //     return ["no entity", {}]
+                            // case "EISDIR":
+                            //     return ["is directory", {}]
+                            default: {
+                                console.warn(`unknown error code: ${err.message}`)
+                                return ["other", { message: err.message }]
+                            }
+                        }
+                    })()
+                }])
+            } else {
+                callback(["success", {}])
+            }
+        }
+    )
+}
+
 export function unlink(
     path: string,
     callback: (
