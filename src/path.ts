@@ -1,6 +1,6 @@
 import * as pth from "path"
 
-export function join(...paths: string[]) {
+export function join(paths: string[]) {
     return pth.join(...paths)
 }
 
