@@ -18,6 +18,17 @@ export function readFileSync(
     )
 }
 
+export function writeFileSync(
+    path: string,
+    data: string,
+) {
+    return fs.writeFileSync(
+        path,
+        data,
+        { encoding: "utf-8"},
+    )
+}
+
 export function unlinkSync(
     path: string,
 ) {
