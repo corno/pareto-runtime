@@ -1,4 +1,5 @@
 export * from "./etc"
 export * from "./fs"
+export * from "./syncFS"
 export * from "./path"
 export * from "./stream"
