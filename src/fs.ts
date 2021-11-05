@@ -193,12 +193,19 @@ export function writeFile(
     )
 }
 
+export type UnlinkErrorType =
+    | ["no entity", {}]
+    //| ["is directory", {}]
+    | ["other", {
+        message: string
+    }]
+
 export function unlink(
     path: string,
     callback: (
         $:
             | ["error", {
-                type: MkDirErrorType
+                type: UnlinkErrorType
             }]
             | ["success", {
             }],
@@ -210,10 +217,10 @@ export function unlink(
             if (err !== null) {
                 const errCode = err.code
                 callback(["error", {
-                    type: ((): MkDirErrorType => {
+                    type: ((): UnlinkErrorType => {
                         switch (errCode) {
-                            // case "ENOENT":
-                            //     return ["no entity", {}]
+                            case "ENOENT":
+                                return ["no entity", {}]
                             // case "EISDIR":
                             //     return ["is directory", {}]
                             default: {
