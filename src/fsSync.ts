@@ -14,7 +14,7 @@ export function readFileSync(
 ) {
     return fs.readFileSync(
         path,
-        { encoding: "utf-8"},
+        { encoding: "utf-8"}, 
     )
 }
 

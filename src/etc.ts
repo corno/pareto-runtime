@@ -1,8 +1,25 @@
+import { _encodeURI, _parseInt } from "./reexport_globals"
 
 export function logError(
     message: string
 ) {
     console.error(message)
+}
+
+export function logWarning(
+    message: string
+) {
+    console.warn(message)
+}
+
+export function log(
+    message: string
+) {
+    console.log(message)
+}
+
+export function trimRight(str: string): string {
+    return str.trimRight()
 }
 
 export function JSONstringify(
@@ -26,13 +43,22 @@ export function Objectkeys(o: Object): string[] {
     return Object.keys(o)
 }
 
-export function parseNumber(
+export function encodeURI(
+    uri: string,
+): string {
+    return _encodeURI(uri)
+}
+
+export function parseInt(
     str: string,
     radix: number,
 ): number {
-    return parseInt(str, radix)
+    return _parseInt(str, radix)
 }
 
+export function stringIsNaN(str: string): boolean {
+    return isNaN(new Number(str).valueOf())
+}
 
 export function escapeString($: {
     str: string,

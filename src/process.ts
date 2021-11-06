@@ -1,5 +1,9 @@
 import * as stream from "stream"
 
+export function getProcessArguments(): string[] {
+    return process.argv
+}
+
 export interface IStreamConsumer<DataType, EndDataType> {
     onData(data: DataType): void;
     onEnd(data: EndDataType): void;
@@ -38,4 +42,9 @@ export function createStdErr() {
             process.stderr.write(str)
         },
     }
+}
+
+
+export function processExit(code: number): never {
+    process.exit(code)
 }
