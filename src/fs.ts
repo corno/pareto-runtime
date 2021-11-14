@@ -102,6 +102,97 @@ export function readdir(
     )
 }
 
+export function isFile($: DirentType) {
+    return $[0] === "File"
+}
+
+export function isDirectory($: DirentType) {
+    return $[0] === "Directory"
+}
+
+export type DirentType =
+    | ["File", {}]
+    | ["Directory", {}]
+    | ["BlockDevice", {}]
+    | ["CharacterDevice", {}]
+    | ["SymbolicLink", {}]
+    | ["FIFO", {}]
+    | ["Socket", {}]
+
+export type Dirent = {
+    name: string
+    type: DirentType
+}
+
+export function readdirWithFileTypes(
+    path: string,
+    callback: (
+        $:
+            | ["error", {
+                type: ReadDirErrorType
+            }]
+            | ["success", {
+                files: Dirent[]
+            }],
+    ) => void,
+): void {
+    fs.readdir(
+        path,
+        {
+            withFileTypes: true,
+        },
+        (err, files) => {
+
+            if (err === null) {
+                callback(["success", {
+                    files: files.map(($) => {
+                        return {
+                            name: $.name,
+                            type: ((): DirentType => {
+                                if ($.isFile()) {
+                                    return ["File", {}]
+                                } else if ($.isDirectory()) {
+                                    return ["Directory", {}]
+                                } else if ($.isBlockDevice()) {
+                                    return ["BlockDevice", {}]
+                                } else if ($.isCharacterDevice()) {
+                                    return ["CharacterDevice", {}]
+                                } else if ($.isFIFO()) {
+                                    return ["FIFO", {}]
+                                } else if ($.isSocket()) {
+                                    return ["Socket", {}]
+                                } else if ($.isSymbolicLink()) {
+                                    return ["Socket", {}]
+                                } else {
+                                    throw new Error(`unexpected Dirent type`)
+                                }
+                            })()
+                        }
+                    }),
+                }])
+
+            } else {
+                const errCode = err.code
+                callback(["error", {
+                    type: ((): ReadDirErrorType => {
+                        switch (errCode) {
+                            case "ENOENT":
+                                return ["no entity", {}]
+                            case "EISDIR":
+                                return ["is directory", {}]
+
+                            default: {
+                                console.warn(`unknown error code: ${err.message}`)
+                                return ["other", { message: err.message }]
+                            }
+                        }
+                    })()
+                }])
+            }
+        }
+    )
+}
+
 export type MkDirErrorType =
     //| ["no entity", {}]
     //| ["is directory", {}]
