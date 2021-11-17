@@ -13,7 +13,7 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "http://github.com/corno/pareto-runtime.git"
+    "url": "https://github.com/corno/pareto-runtime.git"
   },
   "author": "Corno",
   "license": "ISC",
