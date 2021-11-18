@@ -1,23 +1,26 @@
 {
-  "name": "pareto-runtime",
-  "version": "0.10.0",
+  "author": "Corno",
   "description": "\"runtime functions for pareto\"",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "rm -rf ./dist && tsc",
-    "validatePublishReadiness": "git diff --exit-code && ncu -u --packageFile package.json && npm install && npm run build",
-    "pubMin": "npm run validatePublishReadiness && npm version minor && git push && npm publish",
-    "pubPatch": "npm run validatePublishReadiness && npm version patch && git push && npm publish",
-    "update2latest": "ncu -u --packageFile package.json && nsi && tsc"
+  "devDependencies": {
+    "@types/node": "^16.11.7"
   },
-  "types": "dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "license": "ISC",
+  "main": "dist/index.js",
+  "name": "pareto-runtime",
   "repository": {
     "type": "git",
     "url": "https://github.com/corno/pareto-runtime.git"
   },
-  "author": "Corno",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^16.11.7"
-  }
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "pubMin": "npm run validatePublishReadiness && npm version minor && git push && npm publish",
+    "pubPatch": "npm run validatePublishReadiness && npm version patch && git push && npm publish",
+    "update2latest": "ncu -u --packageFile package.json && nsi && tsc",
+    "validatePublishReadiness": "git diff --exit-code && ncu -u --packageFile package.json && npm install && npm run build"
+  },
+  "types": "dist/index.d.ts",
+  "version": "0.10.0"
 }
