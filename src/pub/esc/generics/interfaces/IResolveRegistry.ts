@@ -1,4 +1,4 @@
-import { ResolveError } from "../types/ResolveError"
+import { ResolveError } from "./ResolveError"
 
 export type Resolve<EventAnnotation> = () => ResolveError<EventAnnotation> | null
 
