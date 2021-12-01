@@ -5,7 +5,8 @@
     "@types/node": "^16.11.7"
   },
   "files": [
-    "./dist"
+    "./dist",
+    "./bin"
   ],
   "license": "ISC",
   "main": "dist/index.js",
