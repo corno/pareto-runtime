@@ -2,7 +2,7 @@
   "author": "Corno",
   "description": "\"runtime functions for pareto\"",
   "devDependencies": {
-    "@types/node": "^16.11.7"
+    "@types/node": "^16.11.11"
   },
   "files": [
     "./dist",
