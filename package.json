@@ -1,5 +1,8 @@
 {
   "author": "Corno",
+  "bin": {
+    "copyPackage": "./bin/copyPackage.js"
+  },
   "description": "\"runtime functions for pareto\"",
   "devDependencies": {
     "@types/node": "^16.11.11"
