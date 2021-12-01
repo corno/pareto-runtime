@@ -1,4 +1,6 @@
-import * as pr from "pareto-runtime"
+import { processExit } from "../process"
+import { au, cc } from "../etc"
+import { writeFile } from "../fs"
 
 export function writeFileSafe(
     $: {
@@ -10,26 +12,26 @@ export function writeFileSafe(
     onError: (message: string) => void,
 ) {
     const $in = $
-    pr.writeFile(
+    writeFile(
         $.path,
         $.data,
         ($) => {
             switch ($[0]) {
                 case "error":
-                    pr.cc($[1], ($) => {
+                    cc($[1], ($) => {
                         onError(`could not write '${$in.path}'`)
                         if ($in.exit) {
-                            pr.processExit(1)
+                            processExit(1)
                         }
                     })
                     break
                 case "success":
-                    pr.cc($[1], () => {
+                    cc($[1], () => {
                         onSuccess()
                     })
                     break
                 default:
-                    pr.au($[0])
+                    au($[0])
             }
         }
     )
