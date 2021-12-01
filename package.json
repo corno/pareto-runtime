@@ -8,7 +8,7 @@
     "@types/node": "^16.11.11"
   },
   "files": [
-    "./dist"
+    "dist"
   ],
   "license": "ISC",
   "main": "dist/index.js",
