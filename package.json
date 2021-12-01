@@ -11,7 +11,7 @@
     "dist"
   ],
   "license": "ISC",
-  "main": "dist/index.js",
+  "main": "dist/esc/index.js",
   "name": "pareto-runtime",
   "repository": {
     "type": "git",
@@ -25,6 +25,6 @@
     "update2latest": "ncu -u --packageFile package.json && nsi && tsc",
     "validatePublishReadiness": "git diff --exit-code && ncu -u --packageFile package.json && npm install && npm run build"
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/esc/index.d.ts",
   "version": "0.13.0"
 }
