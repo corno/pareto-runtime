@@ -5,11 +5,11 @@
   },
   "description": "runtime functions for pareto",
   "license": "ISC",
-  "main": "dist/esc/index.js",
+  "main": "./esc/index.js",
   "name": "pareto-runtime",
   "repository": {
     "type": "git",
     "url": "https://github.com/corno/pareto-runtime.git"
   },
-  "types": "dist/esc/index.d.ts"
+  "types": "./esc/index.d.ts"
 }
