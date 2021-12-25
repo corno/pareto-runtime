@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "build": "rm -rf ./dist && tsc && npm run makeBinExecutable",
-    "makeBinExecutable": "find ./dist/bin/ -type f -name \"*.js\" -exec chmod 777 {} +",
+    "makeBinExecutable": "find ./dist/*/esc/bin/ -type f -name \"*.js\" -exec chmod 777 {} +",
     "copyPackage": "./dist/pub/esc/bin/copyPackage.js",
     "pubMin": "npm run validatePublishReadiness && npm version minor && git push && npm run copyPackage && cd ./dist/pub && npm publish",
     "pubPatch": "npm run validatePublishReadiness && npm version patch && git push && npm run copyPackage && cd ./dist/pub && npm publish",
