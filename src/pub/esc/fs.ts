@@ -54,7 +54,7 @@ export function readFile(
 
 export type ReadDirErrorType =
     | ["no entity", {}]
-    | ["is directory", {}]
+    | ["is not directory", {}]
     | ["other", {
         message: string
     }]
@@ -87,8 +87,8 @@ export function readdir(
                         switch (errCode) {
                             case "ENOENT":
                                 return ["no entity", {}]
-                            case "EISDIR":
-                                return ["is directory", {}]
+                            case "ENOTDIR":
+                                return ["is not directory", {}]
 
                             default: {
                                 console.warn(`unknown error code: ${err.message}`)
@@ -178,8 +178,8 @@ export function readdirWithFileTypes(
                         switch (errCode) {
                             case "ENOENT":
                                 return ["no entity", {}]
-                            case "EISDIR":
-                                return ["is directory", {}]
+                            case "ENOTDIR":
+                                return ["is not directory", {}]
 
                             default: {
                                 console.warn(`unknown error code: ${err.message}`)
