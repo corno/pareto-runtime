@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import { livePackagePath, packageTemplatePath, targetPath } from "../data/packagePaths"
-import { JSONparse, JSONstringify, logError } from "../esc/etc"
-import { readFileSafe } from "../esc/copyPackage/readFileSafe"
-import { writeFileSafe } from "../esc/copyPackage/writeFileSafe"
+import { JSONparse, JSONstringify, logError } from "../etc"
+import { readFileSafe } from "../copyPackage/readFileSafe"
+import { writeFileSafe } from "../copyPackage/writeFileSafe"
 
 readFileSafe(
     {

@@ -1,17 +1,30 @@
 {
+  "author": "Corno",
+  "bin": {
+    "copyPackage": "./dist/bin/copyPackage.js"
+  },
+  "description": "runtime functions for pareto",
   "devDependencies": {
     "@types/node": "^16.11.11"
   },
   "files": [
     "dist"
   ],
+  "license": "ISC",
+  "main": "dist/esc/index.js",
+  "name": "pareto-runtime",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/corno/pareto-runtime.git"
+  },
   "scripts": {
     "build": "rm -rf ./dist && tsc && npm run makeBinExecutable",
-    "makeBinExecutable": "find ./dist/**/esc/bin/ -type f -name \"*.js\" -exec chmod 777 {} +",
+    "makeBinExecutable": "find ./dist/bin/ -type f -name \"*.js\" -exec chmod 777 {} +",
     "pubMin": "npm run validatePublishReadiness && npm version minor && git push && npm publish",
     "pubPatch": "npm run validatePublishReadiness && npm version patch && git push && npm publish",
     "update2latest": "ncu -u --packageFile package.json && nsi && tsc",
     "validatePublishReadiness": "git diff --exit-code && ncu -u --packageFile package.json && npm install && npm run build"
   },
+  "types": "dist/esc/index.d.ts",
   "version": "0.13.1"
 }
