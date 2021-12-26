@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
-import { livePackagePath, packageTemplatePath, targetPath } from "../data/packagePaths"
+import { paths } from "../../data/packagePaths"
 import { JSONparse, JSONstringify, logError } from "../etc"
 import { readFileSafe } from "../copyPackage/readFileSafe"
 import { writeFileSafe } from "../copyPackage/writeFileSafe"
 
 readFileSafe(
     {
-        path: packageTemplatePath,
+        path: paths.packageTemplate,
         exit: true,
     },
     ($) => {
         const packageTemplate: any = JSONparse($)
         readFileSafe(
             {
-                path: livePackagePath,
+                path: paths.livePackage,
                 exit: true,
             },
             ($) => {
@@ -23,7 +23,7 @@ readFileSafe(
                 packageTemplate["version"] = livePackage.version
                 writeFileSafe(
                     {
-                        path: targetPath,
+                        path: paths.target,
                         data: JSONstringify(packageTemplate),
                         exit: true,
                     },
