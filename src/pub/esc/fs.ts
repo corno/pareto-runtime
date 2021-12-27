@@ -1,20 +1,21 @@
 import * as fs from "fs"
+import { Dirent } from "../interface/types/Dirent"
+import { DirentType } from "../interface/types/DirentType"
+import { MkDirErrorType } from "../interface/types/MkDirError"
+import { ReadDirError } from "../interface/types/ReadDirError"
+import { ReadFileError } from "../interface/types/ReadFileError"
+import { UnlinkErrorType } from "../interface/types/UnlinkErrorType"
+import { WriteFileErrorType } from "../interface/types/WriteFileErrorType"
 
 
 
-export type ReadFileErrorType =
-    | ["no entity", {}]
-    | ["is directory", {}]
-    | ["other", {
-        message: string
-    }]
 
 export function readFile(
     path: string,
     callback: (
         $:
             | ["error", {
-                type: ReadFileErrorType
+                type: ReadFileError
             }]
             | ["success", {
                 data: string
@@ -33,7 +34,7 @@ export function readFile(
             } else {
                 const errCode = err.code
                 callback(["error", {
-                    type: ((): ReadFileErrorType => {
+                    type: ((): ReadFileError => {
                         switch (errCode) {
                             case "ENOENT":
                                 return ["no entity", {}]
@@ -52,19 +53,12 @@ export function readFile(
     )
 }
 
-export type ReadDirErrorType =
-    | ["no entity", {}]
-    | ["is not directory", {}]
-    | ["other", {
-        message: string
-    }]
-
 export function readdir(
     path: string,
     callback: (
         $:
             | ["error", {
-                type: ReadDirErrorType
+                type: ReadDirError
             }]
             | ["success", {
                 files: string[]
@@ -83,7 +77,7 @@ export function readdir(
             } else {
                 const errCode = err.code
                 callback(["error", {
-                    type: ((): ReadDirErrorType => {
+                    type: ((): ReadDirError => {
                         switch (errCode) {
                             case "ENOENT":
                                 return ["no entity", {}]
@@ -110,26 +104,12 @@ export function isDirectory($: DirentType) {
     return $[0] === "Directory"
 }
 
-export type DirentType =
-    | ["File", {}]
-    | ["Directory", {}]
-    | ["BlockDevice", {}]
-    | ["CharacterDevice", {}]
-    | ["SymbolicLink", {}]
-    | ["FIFO", {}]
-    | ["Socket", {}]
-
-export type Dirent = {
-    name: string
-    type: DirentType
-}
-
 export function readdirWithFileTypes(
     path: string,
     callback: (
         $:
             | ["error", {
-                type: ReadDirErrorType
+                type: ReadDirError
             }]
             | ["success", {
                 files: Dirent[]
@@ -174,7 +154,7 @@ export function readdirWithFileTypes(
             } else {
                 const errCode = err.code
                 callback(["error", {
-                    type: ((): ReadDirErrorType => {
+                    type: ((): ReadDirError => {
                         switch (errCode) {
                             case "ENOENT":
                                 return ["no entity", {}]
@@ -192,13 +172,6 @@ export function readdirWithFileTypes(
         }
     )
 }
-
-export type MkDirErrorType =
-    //| ["no entity", {}]
-    //| ["is directory", {}]
-    | ["other", {
-        message: string
-    }]
 
 export function mkdir(
     path: string,
@@ -238,13 +211,6 @@ export function mkdir(
     )
 }
 
-export type WriteFileErrorType =
-    //| ["no entity", {}]
-    //| ["is directory", {}]
-    | ["other", {
-        message: string
-    }]
-
 export function writeFile(
     path: string,
     data: string,
@@ -283,13 +249,6 @@ export function writeFile(
         }
     )
 }
-
-export type UnlinkErrorType =
-    | ["no entity", {}]
-    //| ["is directory", {}]
-    | ["other", {
-        message: string
-    }]
 
 export function unlink(
     path: string,
