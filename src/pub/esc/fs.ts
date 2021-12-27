@@ -230,10 +230,10 @@ export function writeFile(
             if (err !== null) {
                 const errCode = err.code
                 callback(["error", {
-                    type: ((): MkDirErrorType => {
+                    type: ((): WriteFileErrorType => {
                         switch (errCode) {
-                            // case "ENOENT":
-                            //     return ["no entity", {}]
+                            case "ENOENT":
+                                return ["no entity", {}]
                             // case "EISDIR":
                             //     return ["is directory", {}]
                             default: {

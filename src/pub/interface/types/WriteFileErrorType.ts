@@ -1,6 +1,6 @@
 
 export type WriteFileErrorType =
-//| ["no entity", {}]
+| ["no entity", {}]
 //| ["is directory", {}]
 | ["other", {
     "message": string
