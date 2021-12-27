@@ -43,6 +43,15 @@ export function Objectkeys(o: Object): string[] {
     return Object.keys(o)
 }
 
+export function forEachEntry<T>(
+    dictionary: { [key: string]: T },
+    callback: (entry: T, key: string) => void,
+) {
+    Objectkeys(dictionary).forEach((key) => {
+        callback(dictionary[key], key)
+    })
+}
+
 export function encodeURI(
     uri: string,
 ): string {
