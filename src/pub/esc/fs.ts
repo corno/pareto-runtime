@@ -42,7 +42,7 @@ export function readFile(
                                 return ["is directory", {}]
 
                             default: {
-                                console.warn(`unknown error code: ${err.message}`)
+                                console.warn(`unknown error code in readFile: ${err.message}`)
                                 return ["other", { message: err.message }]
                             }
                         }
@@ -85,7 +85,7 @@ export function readdir(
                                 return ["is not directory", {}]
 
                             default: {
-                                console.warn(`unknown error code: ${err.message}`)
+                                console.warn(`unknown error code in readdir: ${err.message}`)
                                 return ["other", { message: err.message }]
                             }
                         }
@@ -162,7 +162,7 @@ export function readdirWithFileTypes(
                                 return ["is not directory", {}]
 
                             default: {
-                                console.warn(`unknown error code: ${err.message}`)
+                                console.warn(`unknown error code in readdir: ${err.message}`)
                                 return ["other", { message: err.message }]
                             }
                         }
@@ -198,7 +198,7 @@ export function mkdir(
                             // case "EISDIR":
                             //     return ["is directory", {}]
                             default: {
-                                console.warn(`unknown error code: ${err.message}`)
+                                console.warn(`unknown error code in mkdir: ${err.message}`)
                                 return ["other", { message: err.message }]
                             }
                         }
@@ -237,7 +237,7 @@ export function writeFile(
                             // case "EISDIR":
                             //     return ["is directory", {}]
                             default: {
-                                console.warn(`unknown error code: ${err.message}`)
+                                console.warn(`unknown error code in writeFile: ${err.message}`)
                                 return ["other", { message: err.message }]
                             }
                         }
@@ -274,7 +274,7 @@ export function unlink(
                             // case "EISDIR":
                             //     return ["is directory", {}]
                             default: {
-                                console.warn(`unknown error code: ${err.message}`)
+                                console.warn(`unknown error code in unlink: ${err.message}`)
                                 return ["other", { message: err.message }]
                             }
                         }
