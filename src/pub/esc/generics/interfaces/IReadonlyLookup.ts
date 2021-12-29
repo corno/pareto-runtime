@@ -1,5 +1,5 @@
 
-export interface IReadonlyLookup<T> {
+export type IReadonlyLookup<T> = {
     getUnsafe(key: string): T
     with<RT>(
         key: string,

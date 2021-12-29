@@ -1,6 +1,7 @@
 import { IReadonlyLookup } from "../interfaces/IReadonlyLookup"
 import { IReference } from "../interfaces/IReference"
-import { AnnotatedString, IRegistrater } from "../interfaces/IResolveRegistry"
+import { IRegistrater } from "../interfaces/IResolveRegistry"
+import { AnnotatedString } from "../types/AnnotatedString"
 
 export function createReference<T, EventAnnotation>(
     propertyName: string,

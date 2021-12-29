@@ -1,4 +1,4 @@
-export interface IReference<T> {
+export type IReference<T> = {
     get(): T
     readonly name: string
 }

@@ -1,7 +1,7 @@
 import { IReadonlyLookup } from "./IReadonlyLookup"
 
 
-export interface IReadonlyDictionary<T> {
+export type IReadonlyDictionary<T> = {
     forEach(callback: (entry: T, key: string) => void): void
     getLookup: () => IReadonlyLookup<T>
     find: <RT>(
