@@ -12,6 +12,7 @@ export * from "../interface/types/ReadDirError"
 export * from "../interface/types/ReadFileError"
 export * from "../interface/types/UnlinkErrorType"
 export * from "../interface/types/WriteFileErrorType"
+export * from "../interface/functions/trimRight"
 
 
 export * from "./generics/functions/createDictionaryBuilder"

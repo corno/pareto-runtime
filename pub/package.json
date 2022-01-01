@@ -1,15 +1,19 @@
 {
-  "author": "Corno",
-  "bin": {
-    "copyPackage": "./esc/bin/copyPackage.js"
+  "devDependencies": {
+    "@types/node": "^17.0.5"
   },
+  "author": "Corno",
   "description": "runtime functions for pareto",
   "license": "ISC",
-  "main": "./esc/index.js",
+  "main": "dist/index.js",
   "name": "pareto-runtime",
   "repository": {
     "type": "git",
     "url": "https://github.com/corno/pareto-runtime.git"
   },
-  "types": "./esc/index.d.ts"
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "version": "0.15.0"
 }

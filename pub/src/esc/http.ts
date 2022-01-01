@@ -1,5 +1,5 @@
 import * as http from "http"
-import { IStreamConsumer } from "."
+import { IStreamConsumer } from "./process"
 
 export function doHTTPRequest(
     $: {

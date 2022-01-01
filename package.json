@@ -1,18 +1,10 @@
 {
-  "devDependencies": {
-    "@types/node": "^17.0.5"
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build": "rm -rf ./dist && tsc && npm run makeBinExecutable",
-    "makeBinExecutable": "find ./dist/*/esc/bin/ -type f -name \"*.js\" -exec chmod 777 {} +",
-    "copyPackage": "./dist/pub/esc/bin/copyPackage.js",
-    "pubMin": "npm run validatePublishReadiness && npm version minor && git push && npm run copyPackage && cd ./dist/pub && npm publish",
-    "pubPatch": "npm run validatePublishReadiness && npm version patch && git push && npm run copyPackage && cd ./dist/pub && npm publish",
-    "update2latest": "ncu -u --packageFile package.json && nsi && tsc",
-    "validatePublishReadiness": "git diff --exit-code && ncu -u --packageFile package.json && npm install && npm run build"
-  },
-  "version": "0.15.0"
+    "test": "./scripts/buildAndTest.sh",
+    "pubMin": "./scripts/publish.sh minor",
+    "pubPatch": "./scripts/publish.sh patch",
+    "update2latest": "./scripts/update2latest.sh",
+    "update2latestAndPublishMinor": "./scripts/update2latestAndPublish.sh minor",
+    "update2latestAndPublishPath": "./scripts/update2latestAndPublish.sh patch"
+  }
 }

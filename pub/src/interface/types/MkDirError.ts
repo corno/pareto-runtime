@@ -1,6 +1,6 @@
 
 export type MkDirErrorType =
-//| ["no entity", {}]
+| ["no entity", {}]
 //| ["is directory", {}]
 | ["other", {
     readonly "message": string

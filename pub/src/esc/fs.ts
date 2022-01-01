@@ -193,8 +193,8 @@ export function mkdir(
                 callback(["error", {
                     type: ((): MkDirErrorType => {
                         switch (errCode) {
-                            // case "ENOENT":
-                            //     return ["no entity", {}]
+                            case "ENOENT":
+                                return ["no entity", {}]
                             // case "EISDIR":
                             //     return ["is directory", {}]
                             default: {

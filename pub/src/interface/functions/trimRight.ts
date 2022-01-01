@@ -1,0 +1,1 @@
+export type TrimRight = (str: string) => string
