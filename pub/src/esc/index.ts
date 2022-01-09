@@ -1,19 +1,9 @@
 export * from "./etc"
-export * from "./fs"
-export * from "./fsSync"
 export * from "./http"
 export * from "./path"
 export * from "./process"
 
-export * from "../interface/types/Dirent"
-export * from "../interface/types/DirentType"
-export * from "../interface/types/MkDirError"
-export * from "../interface/types/ReadDirError"
-export * from "../interface/types/ReadFileError"
-export * from "../interface/types/UnlinkErrorType"
-export * from "../interface/types/WriteFileErrorType"
 export * from "../interface/functions/trimRight"
-
 
 export * from "./generics/functions/createDictionaryBuilder"
 export * from "./generics/functions/createReference"
