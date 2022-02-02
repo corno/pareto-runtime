@@ -8,7 +8,7 @@ git push && \
 git diff --exit-code && \
 
 #make sure latest packages are installed
-$dir/updatePackage.sh ./pub && \
+$dir/updatePackage.sh ../pub && \
 
 #validate that everything is committed
 git diff --exit-code && \
@@ -22,7 +22,7 @@ newVersion=$(npm version "$1") && \
 popd && \
 
 #commit package.json with new version number
-git add . && \
+git add .. && \
 git commit -m "version bumped to $newVersion" && \
 
 #create a tag
