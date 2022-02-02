@@ -28,6 +28,14 @@ export function subscribeToStdIn(
     })
 }
 
+export function subscribeToProcessBeforeExit(
+    $i: ($: number) => void,
+) {
+    process.on("beforeExit", ($) => {
+        $i($)
+    })
+}
+
 export function createStdOut() {
     return {
         write: (str: string) => {
