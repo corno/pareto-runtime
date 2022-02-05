@@ -1,7 +1,15 @@
 import * as stream from "stream"
 
-export function getProcessArguments(): string[] {
-    return process.argv
+export function runProgram(
+    $i: (argument?: string) => void
+): void {
+    const pa = process.argv
+    if (pa.length > 3) { //expected format is 'node <scriptname> <argument>'
+        console.error("expecting either 0 or 1 argument, not more")
+        processExit(1)
+    } else {
+        $i(pa[2])
+    }
 }
 
 export type IStreamConsumer<DataType, EndDataType> = {
