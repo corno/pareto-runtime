@@ -15,5 +15,6 @@
   "files": [
     "dist"
   ],
-  "version": "0.22.0"
+  "version": "0.22.0",
+  "content-fingerprint": "3c165e5ee58f8fc67f1524600073758aa2cb3deb"
 }

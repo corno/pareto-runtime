@@ -1,5 +1,5 @@
 
-import * as pr from "../../../../pub"
+import * as pr from "../../../../lib"
 
 
 export function runTests(
