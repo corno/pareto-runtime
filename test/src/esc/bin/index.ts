@@ -1,5 +1,5 @@
 
-import * as fp from "../../../../pub"
+import * as fp from "../../../../lib"
 import * as rt from "../implementation/runTests"
 
 
