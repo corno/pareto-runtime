@@ -5,13 +5,9 @@ export * from "./process"
 
 export * from "../interface/functions/trimRight"
 
-export * from "./generics/functions/createDictionaryBuilder"
 export * from "./generics/functions/createReference"
 export * from "./generics/functions/createResolveRegistry"
-export * from "./generics/interfaces/IDictionaryBuilder"
 export * from "./generics/interfaces/IReadonlyArray"
-export * from "./generics/interfaces/IReadonlyDictionary"
-export * from "./generics/interfaces/IReadonlyLookup"
 export * from "./generics/interfaces/IReference"
 export * from "./generics/interfaces/IResolveRegistry"
 export * from "./generics/types/ResolveError"

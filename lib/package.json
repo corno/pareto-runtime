@@ -16,5 +16,8 @@
     "dist"
   ],
   "version": "0.23.0",
-  "content-fingerprint": "3c165e5ee58f8fc67f1524600073758aa2cb3deb"
+  "dependencies": {
+    "pareto-lang-api": "^0.6.0"
+  },
+  "content-fingerprint": "51f72cb4aec314c040df2dc47ffe1d2fdb6be488"
 }
