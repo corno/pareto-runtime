@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@types/node": "^18.0.1"
+    "@types/node": "^18.0.3"
   },
   "author": "Corno",
   "description": "runtime functions for pareto",
@@ -20,5 +20,5 @@
     "pareto-api-core": "^0.1.0"
   },
   "native": true,
-  "content-fingerprint": "88fea309d2c898ebd9c8dd8d5e7c35c890737dbf"
+  "content-fingerprint": "e3505631971e9819b30a82ae0e60646da184c59e"
 }
