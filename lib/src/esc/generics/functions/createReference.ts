@@ -1,4 +1,4 @@
-import { IReadonlyLookup } from "pareto-lang-api"
+import { IReadonlyLookup } from "pareto-api-core"
 import { IReference } from "../interfaces/IReference"
 import { IRegistrater } from "../interfaces/IResolveRegistry"
 import { AnnotatedString } from "../types/AnnotatedString"
